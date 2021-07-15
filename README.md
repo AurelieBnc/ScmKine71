@@ -1,6 +1,19 @@
 # ScmKine71
 site internet du cabinet SCM KINE+71
 
+## Environnement de développement
+
+### Pré-requis
+
+* PHP 7.4
+* Composer
+* Symfony CLI
+
+Vous pouvez vérifier les pré-requis avec la commmande suivante de la CLI Symfony :
+```
+symfony check:requirements
+```
+
 ## Installation
 
 ### Cloner le projet
@@ -29,4 +42,8 @@ php bin/console assets:install public
 php bin/ console ckeditor:install
 php bin/ console assets:install public
 
+```
+## Lancer des tests
+```
+php bin/phpunit --testdox
 ```
