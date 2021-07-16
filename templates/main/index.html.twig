@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Acceuil{% endblock %}
+
+{% block body %}
+    {# Présentation cabinet #}
+    <div class="container-fluid ">
+        <div class="office-describe row shadow-lg p-3 mb-5 bg-body rounded">
+            <h2>Présentation du Cabinet</h2>
+            <hr class="mb-5">
+            <img src="images/cabinet.jpg" alt="photos du cabinet">
+            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet animi beatae deleniti eligendi eos, error, facere in ipsum magni minima neque non odit, officia omnis qui reprehenderit tenetur voluptates!</span><span>Aperiam aspernatur assumenda at, fugit natus nihil quasi repellat voluptatum? Autem blanditiis dolorum ea eius et incidunt ipsa iste omnis repudiandae totam. Adipisci architecto blanditiis hic nostrum unde velit voluptates!</span><span>Atque debitis, dicta, eaque eos esse fugit, hic in incidunt iste iure laudantium magni molestiae molestias mollitia necessitatibus neque nesciunt nulla officia optio porro quas reprehenderit unde veritatis vitae voluptate!</span><span>Dolore enim eum iure, laboriosam libero magni recusandae voluptatem. Ab alias aliquid animi atque error ex facere id illo ipsam, labore maiores modi, nihil quam rerum soluta veritatis voluptas voluptates.</span><span>Aliquam architecto commodi consectetur culpa deserunt dolorem, earum error explicabo, id iste iure laboriosam veritatis voluptate! Aspernatur autem blanditiis, eligendi est fugit illum maiores nam, odio quidem quos reiciendis, sit.</span><span>Ad alias aliquam asperiores eius et facilis minus obcaecati officia optio porro provident quaerat, quisquam repellat similique, unde. Accusantium atque consectetur expedita iusto labore libero magnam, quae quasi ratione vero.</span><span>A accusantium amet animi aperiam cupiditate delectus dicta doloremque dolores ducimus eius incidunt, inventore iure labore libero maxime, modi mollitia, necessitatibus omnis perferendis perspiciatis possimus quae reiciendis repudiandae soluta ullam.</span><span>Asperiores at atque autem blanditiis dignissimos distinctio, earum eligendi esse eveniet excepturi facere, fugiat hic id illo ipsum mollitia nobis officia officiis provident quibusdam quidem saepe similique sit veniam voluptate!</span><span>Amet aut autem culpa cum delectus deserunt dolorem doloribus esse exercitationem explicabo fugiat inventore itaque laboriosam laudantium minima mollitia nam nemo non obcaecati sunt suscipit tempora tempore, ullam veritatis voluptatibus.</span><span>Accusamus alias aliquid consequuntur deserunt dolores eligendi enim error eveniet explicabo facilis fugiat maxime natus necessitatibus nostrum odio officiis, quidem quos ratione repellat saepe tempora tenetur vel vitae voluptate voluptatum.</span></p>
+        </div>
+    </div>
+
+
+    {# Présentation de l'équipe #}
+    <div class="container-fluid">
+        <div class="office-describe row shadow-lg p-3 mb-5 bg-body rounded">
+            <h2>Présentation de l'équipe</h2>
+            <hr class="mb-5">
+            {# card des praticiens  #}
+            <div class="card mb-5 ">{# possibilité de réduire la taille avec style cf doc bootstrap  #}
+                <div class="row g-0 p-0">
+                    <div class="col-md-4 d-flex pt-2 p-lg-0">
+                        <img src="images/praticiens/profil_default.jpg" class="img-fluid rounded-start my-auto" alt="photos du praticien">
+                    </div>
+                    <div class="col-md-8 d-flex">
+                        <div class="card-body flex-grow-1">
+                            <h3 class="card-title text-center">Nom du praticien</h3>
+                            <hr>
+                            <p class="card-text"><img src="images/icons/diplome.png" alt="icon diplome" class="me-1"> This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p><!-- https://www.pngegg.com/fr/png-iusyt/download?width=50-->
+                            <p class="card-text"><img src="images/icons/main.jpg" alt="Main Vecteurs par Vecteezy" style="width:4rem;"> This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p><a href="https://fr.vecteezy.com/vecteur-libre/main"></a>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text "><small class="text-muted">Arrivée dans le cabinet le xx/xx/xx</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {# fin de card  #}
+            {# card des praticiens  #}
+            <div class="card mb-5 ">{# possibilité de réduire la taille avec style cf doc bootstrap  #}
+                <div class="row g-0 p-0">
+                    <div class="col-md-4 d-flex">
+                        <img src="images/praticiens/profil_default.jpg" class="img-fluid rounded-start my-auto" alt="photos du praticien">
+                    </div>
+                    <div class="col-md-8 d-flex">
+                        <div class="card-body flex-grow-1">
+                            <h3 class="card-title text-center">Nom du praticien</h3>
+                            <hr>
+                            <p class="card-text"><img src="images/icons/diplome.png" alt="icon diplome" class="me-1"> This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><img src="images/icons/main.jpg" alt="Main Vecteurs par Vecteezy" style="width:4rem;"> This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p><a href="https://fr.vecteezy.com/vecteur-libre/main"></a>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text "><small class="text-muted">Arrivée dans le cabinet le xx/xx/xx</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {# fin de card  #}
+            {# card des praticiens  #}
+            <div class="card mb-5 ">{# possibilité de réduire la taille avec style cf doc bootstrap  #}
+                <div class="row g-0 p-0">
+                    <div class="col-md-4 d-flex">
+                        <img src="images/praticiens/profil_default.jpg" class="img-fluid rounded-start my-auto" alt="photos du praticien">
+                    </div>
+                    <div class="col-md-8 d-flex">
+                        <div class="card-body flex-grow-1">
+                            <h3 class="card-title text-center">Nom du praticien</h3>
+                            <hr>
+                            <p class="card-text"><img src="images/icons/diplome.png" alt="icon diplome" class="me-1"> This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><img src="images/icons/main.jpg" alt="Main Vecteurs par Vecteezy" style="width:4rem;"> This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p><a href="https://fr.vecteezy.com/vecteur-libre/main"></a>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text "><small class="text-muted">Arrivée dans le cabinet le xx/xx/xx</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {# fin de card  #}
+        </div>
+    </div>
+{% endblock %}
