@@ -68,11 +68,9 @@
     </div>
 
 
-    {# Affichage des messages flashs de succès s'il y en a
-    {% include 'partials/flashes/success.html.twig' %}
-
-   Affichage des messages flashs d'erreur s'il y en a
-    {% include 'partials/flashes/error.html.twig' %}
+    {# Affichage des messages flashes de succès et d'erreur #}
+    {% include 'partials/success.html.twig' %}
+    {% include 'partials/error.html.twig' %}
 
     {# Affichage du contenu principal des pages #}
     {% block body %}{% endblock %}
