@@ -42,7 +42,7 @@ php bin/ console ckeditor:install
 
 ```
 
-## Lancer des tests
+## Lancer les tests unitaires
 ```
 php bin/phpunit --testdox
 ```
