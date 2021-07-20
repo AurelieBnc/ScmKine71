@@ -23,7 +23,7 @@ class Service
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="float", nullable=true)
      */
     private $amCode;
 
@@ -49,12 +49,12 @@ class Service
         return $this;
     }
 
-    public function getAmCode(): ?string
+    public function getAmCode(): ?float
     {
         return $this->amCode;
     }
 
-    public function setAmCode(string $amCode): self
+    public function setAmCode(?float $amCode): self
     {
         $this->amCode = $amCode;
 

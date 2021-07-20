@@ -1,6 +1,10 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
-
+    globals:
+        site_name: '%site_name%'
+        coefAM: '%coefAM%'
+        coefMut: '%coefMut%'
+        coefPrix: '%coefPrix%'
 when@test:
     twig:
         strict_variables: true

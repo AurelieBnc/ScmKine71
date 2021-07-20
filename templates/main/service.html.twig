@@ -3,85 +3,111 @@
 {% block title %}Soins et installations{% endblock %}
 
 {% block body %}
-    {# Présentation  #}
-    <h1> Soins et tarifications</h1>
-    <h2 id="service-price">Tarifications</h2>
-    <div>
-        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem commodi consectetur dignissimos eligendi
-            explicabo, fuga incidunt itaque magnam magni molestiae natus nihil porro quidem reiciendis saepe tenetur
-            ullam veritatis voluptatem!
+
+
+    <h1 id="service-price" class="text-center name-office mb-5">Nos soins et installations</h1>
+
+    <div class="container-fluid">
+        {# Présentation  #}
+        <div class="office-describe office-services row shadow-lg p-3 mb-5 bg-body rounded">
+
+
+            <h2 >Tarifications</h2>
+
+            <div class="table-responsive">
+                <table class="table">
+
+                    <thead>
+                    <tr>
+                        <th scope="col">Acte pratiqué </th>
+                        <th scope="col">AM</th>
+                        <th scope="col">Montant</th>
+                        <th scope="col">% Remboursement AM*</th>
+                        <th scope="col">Montant remboursé - AM*</th>
+                        <th scope="col">Montant remboursable - Mutuelle</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for services in service %}
+                        {# les trois coefficients sont facilement modifiable dans services.yaml#}
+                        <tr>
+                            <th scope="row">{{ services.title}}</th>
+                            <td>{{ services.amCode|number_format(1,'.') }}</td>
+                            <td>{{ (services.amCode|number_format(1,'.') * coefPrix|number_format(2,'.','.'))|number_format(2,'.','.') }}</td>
+                            <td>{{ coefAM }}</td>
+                            <td>{{ ((services.amCode|number_format(1,'.') * coefPrix|number_format(2,'.','.'))* coefAM /100 )|number_format(2,'.','.') }}</td>
+                            <td>{{ ((services.amCode|number_format(1,'.') * coefPrix|number_format(2,'.','.'))* coefMut /100)|number_format(2,'.','.')  }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
+            <footer class="blockquote-footer">Tarif pour une séance
+                <p>* AM : Assurance Maladie</p>
+            </footer>
+            <hr>
+
+            <h2>Dépassements</h2>
+            <div class="table-responsive">
+                <table class="table">
+
+                    <thead>
+                    <tr>
+                        <th scope="col">Acte pratiqué </th>
+                        <th scope="col">Montant total</th>
+                        <th scope="col">Montant remboursé - par les caisses</th>
+                        <th scope="col">Montant non-remboursé</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for services in service %}
+                    {% if services.overtaking !=null %}
+                    <tr>
+                    <th scope="row">{{ services.title }}</th>
+                    <td>{{ ((services.amCode|number_format(2,'.','.') * coefPrix) + services.overtaking|number_format(2,'.','.'))|number_format(2,'.','.') }}</td>
+                    <td>{{ ((services.amCode|number_format(2,'.','.') * coefPrix) )|number_format(2,'.','.') }}</td>
+                    <td>{{ services.overtaking|number_format(2,'.','.') }}</td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
+            <footer class="blockquote-footer">Un dépassement d'honoraire est appliqué pour certains actes. Payable en fin de séance
+                <p>* AM : Assurance Maladie</p>
+            </footer>
+
         </div>
-        <div>Ab, alias aperiam aut corporis doloremque eius ex iste magni nihil nisi. Accusantium eius ipsam officiis
-            quis rem sequi vel veritatis voluptatibus? Consequuntur delectus dolore ea eius porro reiciendis ut!
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="office-describe office-services row shadow-lg p-3 mb-5 bg-body rounded">
+            <h2 id="medical-facility">Installations</h2>
+            <hr>
+            {% for equipements in equipement %}
+            <h3 class ="mb-3 mt-5 shadow-sm p-3 mb-4 bg-body rounded">{{ equipements.name }}</h3>
+
+            <div class="row d-flex flex-row mb-5">
+                <div class="col-3 d-flex  align-items-center">
+                    <img src="{{asset ('images/installations/'~ equipements.image)}}" alt="photo appareil onde de choc" class="img-fluid " >
+                </div>
+                <div class="col-9">
+                    <h4 class="mb-3 shadow-sm p-3 mb-4 bg-body rounded">Fonctionnalités de l'appareil</h4>
+                    {{ equipements.describeEquipement }}
+                </div>
+            </div>
+            {% endfor %}
+
+            <!--Video explicative de l'appareil onde de choc
+            <div class="col-8 d-flex ">
+                <iframe width="600" height="338" src="https://www.youtube.com/embed/7gGEnY2huWY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>-->
         </div>
-        <div>Accusantium alias amet commodi consequatur deleniti dolorem dolores excepturi fuga harum ipsa itaque
-            mollitia necessitatibus neque nihil, odio optio possimus quis tempore vel voluptatem. Distinctio eum itaque
-            libero minus sunt!
-        </div>
-        <div>Ab aliquid at autem earum ex expedita impedit laborum nemo nihil nostrum perferendis quibusdam quod rem,
-            sit ullam. Architecto commodi consectetur culpa deserunt error modi, nostrum perspiciatis provident tempora
-            tempore!
-        </div>
-        <div>Alias autem enim eos illo impedit incidunt iste iure iusto nobis officiis optio sequi sit soluta suscipit,
-            unde velit veniam vero. Animi consequatur, dignissimos dolorem hic impedit magni numquam quos.
-        </div>
-        <div>A accusamus animi architecto atque corporis delectus dolor doloribus enim eveniet excepturi facilis, hic
-            magnam modi mollitia nesciunt nulla pariatur praesentium quasi quisquam ratione reprehenderit similique
-            ullam vero voluptatibus voluptatum.
-        </div>
-        <div>Delectus eius incidunt ipsum iure nam nostrum rem! Aliquam aut autem, culpa dolore, dolorem eius est ex
-            odit, placeat quibusdam suscipit tenetur totam vel veritatis voluptatem? Autem explicabo quo similique.
-        </div>
-        <div>Animi dignissimos natus sapiente veniam? Ad assumenda, dolores et facere itaque minima odio perferendis
-            possimus qui ratione recusandae repudiandae sequi velit! Architecto asperiores at dignissimos ipsum
-            recusandae rerum, sed tempora.
-        </div>
-        <div>Ab assumenda corporis cumque deleniti dignissimos, ducimus, est excepturi fuga, harum illo ipsum molestias
-            natus nemo repellat repellendus totam voluptates! Corporis et facere perferendis. Atque blanditiis fuga
-            magni quod suscipit?
-        </div>
-        <div>A accusamus ad aliquid aperiam aspernatur at aut cum eum eveniet ipsam ipsum magni mollitia, nam non
-            nostrum obcaecati officiis optio placeat provident quam quidem repellat, reprehenderit sint, unde ut!
-        </div>
-        <div>Asperiores deleniti doloremque perferendis quia veniam? Architecto at, consectetur doloribus ea expedita
-            laudantium quia temporibus. Ab dolorum eum fugit ipsam laboriosam magnam maiores maxime neque, optio
-            praesentium quisquam sunt voluptatem.
-        </div>
-        <div>At distinctio doloremque, dolores eligendi ex explicabo incidunt necessitatibus nesciunt nisi odit officiis
-            omnis, optio placeat qui soluta velit voluptas. Aperiam laudantium magnam modi odit quibusdam rem repellat
-            rerum, sunt?
-        </div>
-        <div>Aliquid esse est exercitationem harum iure quibusdam quo. Blanditiis doloremque, et incidunt ipsa laborum
-            laudantium molestiae nam natus nesciunt nulla quasi, sapiente sint vel voluptates voluptatibus. Beatae
-            cupiditate officia vel!
-        </div>
-        <div>Animi atque consectetur corporis debitis delectus dolor esse, et eum expedita, illo inventore itaque libero
-            nihil pariatur porro qui quidem quis recusandae rem repudiandae, soluta ullam voluptatem voluptatum. Dicta,
-            laboriosam?
-        </div>
-        <div>Amet beatae doloremque dolores earum ex, excepturi explicabo facere hic magni, maxime repudiandae
-            temporibus? Blanditiis dolore eos ex labore laboriosam natus necessitatibus nesciunt nobis officia placeat
-            quidem recusandae repellendus, unde.
-        </div>
-        <div>Aperiam cum dolor dolorem expedita facilis in mollitia natus necessitatibus nulla perferendis placeat
-            provident quibusdam quo repellat, sint soluta, tempore veritatis voluptatum. Cumque debitis expedita magnam,
-            pariatur rem rerum voluptatibus.
-        </div>
-        <div>Autem dicta esse praesentium quibusdam vitae! Architecto atque corporis deleniti dolor doloremque esse et
-            illum, ipsam natus nesciunt nihil nobis, officiis placeat quidem quo quod sint tempora temporibus, vel
-            vitae?
-        </div>
-        <div>Amet aperiam architecto cum cumque delectus dolore eligendi enim eos eveniet ex facere hic laboriosam
-            minima non perspiciatis praesentium qui quod repellendus, saepe sequi tenetur veritatis voluptas voluptate.
-            Cum, odio?
-        </div>
-        <div>Aperiam, deleniti deserunt facilis fuga fugit harum inventore ipsa ipsam laboriosam maxime molestiae nam,
-            obcaecati praesentium quas repellendus vero voluptas. Accusantium animi at dolorum fugit iure numquam ut vel
-            veritatis!
-        </div>
-        <div>Alias consectetur consequuntur cumque deserunt dolor eius fugit nam non, nostrum obcaecati, perferendis
-            placeat rem repudiandae sapiente similique sit suscipit tempora tempore temporibus tenetur. Commodi
-            consequuntur earum nobis quaerat voluptatibus.
-        </div></div>
-    <h2 id="medical-facility">Installations</h2>
+    </div>
+
 {% endblock %}
