@@ -40,7 +40,6 @@ $(function () {
         openAdressIframe();
     });
 
-
     ///SYSTEME DE TABULATION///
     // Mise en place d'un écouteur d'évènement "click" sur tous les boutons du système de tabulation
     $('.tab-container .tabs .tab').click(function(){

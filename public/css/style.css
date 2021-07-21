@@ -254,17 +254,14 @@ div.office-services>div.table-responsive>table>tbody>tr>td{
     width: 95%;
     margin: auto;
 }
-/*articles*/
-.blog-describe>div>div{
+/*date du header*/
+.blog-describe>header>p{
     font-family: 'CormorantGaramond', Arial, Helvetica, sans-serif;
-    font-size: 1.5rem
+    font-size: 1.5rem;
 }
-/*aside*/
+/*asides*/
 div.sticky-aside div.aside-content>ul>li{
     list-style: none;
-}
-div.sticky-aside div.aside-content>ul>li>div{
-    box-sizing: content-box;
 }
 
 #blog-aside div.aside-content>ul>li>a{
@@ -276,12 +273,12 @@ div.sticky-aside div.aside-content>ul>li>a:hover{
     text-decoration: underline;
 }
 
-#blog-aside>div>div.aside-content>div>div.aside>h4>a{
+#blog-aside>aside>div.aside-content>div>article.aside>h4>a{
     text-decoration: none;
     color: var(--darkcolor);
     font-size: 1.2rem;
 }
-#blog-aside>div>div.aside-content>div>div.aside>h4>a:hover{
+#blog-aside>aside>div.aside-content>div>article.aside>h4>a:hover{
     text-decoration: underline;
 }
 
@@ -289,6 +286,27 @@ div.sticky-aside div.aside-content>ul>li>a:hover{
     width: 50px;
     margin:auto;
 }
+/*//////////*/
+/*Page de recherche*/
+
+/*titre des articles*/
+#search-article>div.blog-describe>header>h3>a{
+    text-decoration: none;
+    color: var(--darkcolor);
+}
+#search-article>div.blog-describe>header>h3>a:hover{
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+/* message - pas de résultat */
+#search-article>p.alert{
+    background-color: var(--lightcolor);
+    color: var(--darkcolor);
+    font-weight: bolder;
+}
+
+/* Menus pagination todo */
 
 
 /*//////////*/
