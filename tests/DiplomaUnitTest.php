@@ -3,7 +3,6 @@
 namespace App\Tests;
 
 use App\Entity\Diploma;
-use App\Entity\Obtention;
 use PHPUnit\Framework\TestCase;
 
 class DiplomaUnitTest extends TestCase

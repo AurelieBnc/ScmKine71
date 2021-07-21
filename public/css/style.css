@@ -266,10 +266,8 @@ div.sticky-aside div.aside-content>ul>li{
 div.sticky-aside div.aside-content>ul>li>div{
     box-sizing: content-box;
 }
-#u_0_0_5d>div._3hft{
-    background-color: black;
-}
-div.sticky-aside div.aside-content>ul>li>a{
+
+#blog-aside div.aside-content>ul>li>a{
     text-decoration: none;
     color: var(--darkcolor);
 }
@@ -277,12 +275,20 @@ div.sticky-aside div.aside-content>ul>li>a:hover{
     font-weight: bolder;
     text-decoration: underline;
 }
+
+#blog-aside>div>div.aside-content>div>div.aside>h4>a{
+    text-decoration: none;
+    color: var(--darkcolor);
+    font-size: 1.2rem;
+}
+#blog-aside>div>div.aside-content>div>div.aside>h4>a:hover{
+    text-decoration: underline;
+}
+
 .separation-icon{
     width: 50px;
     margin:auto;
 }
-
-
 
 
 /*//////////*/

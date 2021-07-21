@@ -35,7 +35,7 @@
                         <a class="nav-link border border-2 shadow-sm rounded pt-1" href="{{ path('region') }}">Infos région sous-dotée</a>
                     </li>
                 </ul>
-                <a class="name-office navbar-brand ms-5 ps-5 d-none d-lg-block" href="{{ path('home') }}">Cabinet SCM KINES+71 </a>
+                <a class="name-office navbar-brand ms-5 ps-5 d-none d-lg-block" href="{{ path('home') }}">Cabinet {{ site_name }} </a>
 
                 {# onglet à droite #}
                 <ul class="navbar-nav ms-auto">
@@ -51,7 +51,7 @@
                         </ul>
                     </li>
                     <li class="nav-item text-center pe-3 p-lg-0 ">
-                        <a class="nav-link px-lg-5" href="#" tabindex="-1" aria-disabled="true">Blog</a>
+                        <a class="nav-link px-lg-5" href="{{ path('blog') }}" tabindex="-1" aria-disabled="true">Blog</a>
                     </li>
                 </ul>
             </div>
@@ -80,7 +80,7 @@
 
     <!--Pied de page-->
     <footer class="footer-page container-fluid pb-0 px-0 mb-0 mt-5 bg-blue">
-        <h3 class="name-office ps-2 pt-2 text-center">Cabinet SCM KINES+71</h3><hr>
+        <h3 class="name-office ps-2 pt-2 text-center">Cabinet {{ site_name }}</h3><hr>
         <nav class="footer-menus d-flex flex-column flex-md-row">
 
             <div>

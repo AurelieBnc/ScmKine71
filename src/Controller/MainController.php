@@ -20,7 +20,7 @@ class MainController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('main/index.html.twig');
+        return $this->render('main/blog.html.twig');
     }
 
     /**
