@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur 500 - {{ site_name }}{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <h1  class="text-center name-office my-5">Erreur 500</h1>
+            <h3 class="text-center my-5">Le serveur Web rencontre une difficulté pour accéder à votre page, veuillez re-essayer plus tard -  <a href="{{ path('home') }}">revenir à l'acceuil</a>
+            </h3>
+            <img class="img-thumbnail img-fluid" src="{{ asset('images/pagesErreur/oopsPink.png')|imagine_filter('reduc') }}" alt="OOps ">
+        </div>
+    </div>
+
+{% endblock %}
