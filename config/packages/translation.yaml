@@ -1,9 +1,11 @@
 framework:
-    default_locale: en
+    default_locale: fr
     translator:
+        # Mettre la/les langue(s) principale(s) du site pour générer seulement les fichier dans cette/ces langue(s)
+        enabled_locales: [ 'fr' ]
         default_path: '%kernel.project_dir%/translations'
         fallbacks:
-            - en
+            - fr
 #        providers:
 #            crowdin:
 #                dsn: '%env(CROWDIN_DSN)%'
