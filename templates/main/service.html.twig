@@ -94,11 +94,11 @@
 
             <div class="row d-flex flex-row mb-5">
                 <div class="col-3 d-flex  align-items-center">
-                    <img src="{{asset ('images/installations/'~ equipements.image)}}" alt="photo appareil onde de choc" class="img-fluid " >
+                    <img src="{{asset ('images/installations/'~ equipements.image)}}" alt="photo {{ equipements.name }}" class="img-fluid " >
                 </div>
                 <div class="col-9">
                     <h4 class="mb-3 shadow-sm p-3 mb-4 bg-body rounded">Fonctionnalités de l'appareil</h4>
-                    {{ equipements.describeEquipement }}
+                    {{ equipements.describeEquipement|purify }}
                 </div>
             </div>
             {% endfor %}

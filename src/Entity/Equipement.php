@@ -4,9 +4,14 @@ namespace App\Entity;
 
 use App\Repository\EquipementRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 /**
  * @ORM\Entity(repositoryClass=EquipementRepository::class)
+ * @Vich\Uploadable
  */
 class Equipement
 {
@@ -26,6 +31,12 @@ class Equipement
      * @ORM\Column(type="string", length=255)
      */
     private $image;
+
+    /**
+     * @Vich\UploadableField(mapping="photo_equipement", fileNameProperty="image")
+     *@var File;
+     */
+    private $imageFile;
 
     /**
      * @ORM\Column(type="text")
@@ -59,6 +70,17 @@ class Equipement
         $this->image = $image;
 
         return $this;
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageFile(File $file = null):void
+    {
+        $this->imageFile = $file;
+
     }
 
     public function getDescribeEquipement(): ?string

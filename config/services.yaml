@@ -8,6 +8,8 @@ parameters:
     coefAM: 60
     coefMut: 40
     coefPrix: 2.15
+    photo_equipement: /uploads/installations
+    photo_practitioner: /uploads/practitioner
 
 services:
     # default configuration for services in *this* file
