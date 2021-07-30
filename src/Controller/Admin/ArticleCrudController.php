@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class ArticleCrudController extends AbstractCrudController
@@ -25,7 +26,7 @@ class ArticleCrudController extends AbstractCrudController
             AssociationField::new('category', 'Catégorie'),
             TextField::new('title','Titre'),
             DateField::new('publicationDate','Date de publication'),
-            TextareaField::new('content','Contenu'),
+            TextEditorField::new('content','Contenu'),
             SlugField::new('slug')->setTargetFieldName('title')->hideOnIndex(),
 
         ];
