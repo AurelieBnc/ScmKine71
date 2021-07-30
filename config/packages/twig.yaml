@@ -5,6 +5,8 @@ twig:
         coefAM: '%coefAM%'
         coefMut: '%coefMut%'
         coefPrix: '%coefPrix%'
+
 when@test:
     twig:
         strict_variables: true
+
