@@ -146,6 +146,10 @@ nav.navbar>div>div>ul>li>ul>li>a:hover{
     color: var(--darkcolor);
 }
 
+.office-describe>p{
+    text-align: justify;
+}
+
 .office-describe>div.card>div.row>div>div.card-body>h3{
     color: var(--darkcolor);
 }

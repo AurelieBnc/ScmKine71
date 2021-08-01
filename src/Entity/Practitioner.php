@@ -6,9 +6,11 @@ use App\Repository\PractitionerRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=PractitionerRepository::class)
+ * @Vich\Uploadable
  */
 class Practitioner
 {
@@ -33,6 +35,12 @@ class Practitioner
      * @ORM\Column(type="string", length=255)
      */
     private $image;
+
+    /**
+     * @Vich\UploadableField(mapping="photo_equipement", fileNameProperty="image")
+     *@var File;
+     */
+    private $imageFile;
 
     /**
      * @ORM\OneToMany(targetEntity=Obtention::class, mappedBy="practitioner", orphanRemoval=true)
@@ -83,6 +91,17 @@ class Practitioner
         $this->image = $image;
 
         return $this;
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageFile(File $file = null):void
+    {
+        $this->imageFile = $file;
+
     }
 
     /**
