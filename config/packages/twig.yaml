@@ -5,6 +5,7 @@ twig:
         coefAM: '%coefAM%'
         coefMut: '%coefMut%'
         coefPrix: '%coefPrix%'
+        google_recaptcha_site_key: '%env(GOOGLE_RECAPTCHA_SITE_KEY)%'
 
 when@test:
     twig:

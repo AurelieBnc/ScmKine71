@@ -9,4 +9,9 @@ liip_imagine:
             quality: 100
             filters:
                 scale:
-                    dim: [50, 50]
+                    dim: [100, 100]
+        avatar:
+            quality: 100
+            filters:
+                scale:
+                    dim: [ 200, 200 ]

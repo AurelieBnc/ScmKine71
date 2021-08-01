@@ -1,0 +1,84 @@
+{# Base for Twig page #}
+{% extends 'base.html.twig' %}
+
+{# Page title #}
+{% block title %}Contact - {{ site_name }} {% endblock %}
+
+{# Page CSS #}
+{% block css %}
+	{# Insertion du fichier JS dans le block stylesheets conformément à la documentation de Recaptcha qui préconise d'intégrer ce fichier JS dans le head #}
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{% endblock %}
+
+{# Page content #}
+{% block body %}
+
+{% for flashError in app.flashes %}
+<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+{% endfor %}
+
+
+	<div class="container-fluid">
+		{# bloc formulaire de contact #}
+		<div class="row">
+			<div class="office-describe office-services row shadow-lg p-3 mb-5 bg-body rounded d-flex justify-content-center">
+				<h2 class="text-center fw-bolder my-3" >Créer un compte</h2>
+
+				{# Ouverture du formulaire #}
+				{{ form_start(contactForm) }}
+
+				{# Affichage du champ sujet #}
+				{% block subject_label %}
+				<label for="{{ contactForm.subject.vars.id }}" class="form-label required" style="margin-left: 0px;">
+					{{ contactForm.subject.vars.label }} <span class="text-danger">*</span></label>
+				{% endblock %}
+				<div class="form-outline mt-3">
+					{{ form_widget(contactForm.subject) }}
+
+					{{ form_errors(contactForm.subject) }}
+				</div>
+
+				{# Affichage du champ email #}
+				<div class="form-outline mt-3">
+					{% block email_label %}
+					<label for="{{ contactForm.email.vars.id }}" class="form-label required" style="margin-left: 0px;">
+						{{ contactForm.email.vars.label }} <span class="text-danger">*</span>
+					</label>
+					{% endblock %}
+					{{ form_widget(contactForm.email) }}
+
+					{{ form_errors(contactForm.email) }}
+				</div>
+
+				{# Affichage du champ content #}
+				<div class="form-outline mt-3">
+					{% block content_label %}
+					<label for="{{ contactForm.content.vars.id }}" class="form-label required" style="margin-left: 0px;">
+						{{ contactForm.content.vars.label }} <span class="text-danger">*</span></label>
+					{% endblock %}
+					{{ form_widget(contactForm.content) }}
+
+					{{ form_errors(contactForm.content) }}
+				</div>
+
+				{# Affichage du captcha avec la clé publique récupérée directement grâce à la passerelle faite dans twig.yaml #}
+				<div class="mt-4 d-flex justify-content-center">
+
+					<div class="g-recaptcha" data-sitekey="{{ google_recaptcha_site_key }}"></div>
+
+				</div>
+
+				<h2>{{ form_row(contactForm.save) }}</h2>
+
+				{# icon de séparation #}
+				<img src="{{ asset('images/icons/origami.png') }}" alt="icon origami" class="separation-icon my-5 d-flex justify-content-center">
+
+				{# Fermeture du formulaire #}
+				{{ form_end(contactForm) }}
+
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+

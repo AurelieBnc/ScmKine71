@@ -66,7 +66,7 @@
                                     <hr>
 
                                     {# Contenu de l'article #}
-                                    <p>{{ articles.content|nl2br }}</p>
+                                    <p>{{ articles.content|purify|nl2br }}</p>
 
                                     {# footer de l'article #}
                                     <footer class="blockquote-footer d-flex justify-content-end">publié dans {{ articles.category.title }}</footer>

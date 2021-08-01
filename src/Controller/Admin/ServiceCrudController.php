@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Service;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -24,5 +25,4 @@ class ServiceCrudController extends AbstractCrudController
             NumberField::new('overtaking','Dépassement')
         ];
     }
-
 }
