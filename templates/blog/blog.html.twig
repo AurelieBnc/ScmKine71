@@ -14,6 +14,9 @@
     <div class="container p-0">
         <h1 class="text-center name-office my-5">Fil d'actualité du Cabinet</h1>
 
+
+
+
         <div class="row">
             {# Conteneur général du système de tabulation du Sous-Menus Catégorie d'article #}
             <section class="my-5 col-12 col-lg-9 tab-container">
@@ -22,13 +25,16 @@
                 <div class="tabs">
                     {# Bouton 1 (affiché par défaut avec la classe active) #}
                     <div class="tab active" data-open="view1">
-                        <h3 >Actualité Santé</h3>
+                        <h3>Général</h3>
                     </div>
                     {# Bouton 2 #}
                     <div class="tab" data-open="view2">
+                        <h3>Actualité Santé</h3>
+                    </div>
+                    {# Bouton 3 #}
+                    <div class="tab" data-open="view3">
                         <h3>Vie du cabinet</h3>
                     </div>
-                    {# todo ajout d'une vue d'ensemble? #}
                 </div>
 
                 {# Conteneur des vues correspondant aux boutons  #}
@@ -36,18 +42,19 @@
 
                     {# Vue 1 - Actualité santé (affichée par défaut avec la classe active) #}
                     <div class="view active" id="view1">
-                        <h2 class="text-center text-lg-start my-4">Les dernières actualités Santé</h2>
 
                         {# S'il y a des articles, on affiche la pagination #}
                         {% if articlesView1 is not empty %}
-                            <div class="row navPagination">
-                                <div class="col-12 my-3 text-center">
-                                    <div class="d-inline-block">
-                                        {{ knp_pagination_render(articlesView1) }}
-                                    </div>
+                        <div class="row navPagination">
+                            <div class="col-12 my-3 text-center">
+                                <div class="d-inline-block">
+                                    {{ knp_pagination_render(articlesView1) }}
                                 </div>
                             </div>
+                        </div>
                         {% endif %}
+
+                        <h2 class="text-center text-lg-start my-4">Nos articles</h2>
 
                         {# Blog #}
                         <div class="container-fluid blog-container">
@@ -84,26 +91,54 @@
                     </div>{# Fin de Vue 1 #}
 
 
-                    {# Vue 2 #}
-                    <div class="view" id="view2">
-                        <h2 class="text-center text-lg-start my-4">La vie au sein du Cabinet</h2>
+                    {# Vue 2 - Actualité santé  #}
+                    <div class="view " id="view2">
+                        <h2 class="text-center text-lg-start my-4">Les dernières actualités Santé</h2>
 
-                        {# S'il y a des articles, on affiche la pagination#}
-                        {% if articlesView2 is not empty %}
-                            <div class="row">
-                                <div class="col-12 my-3 text-center">
-                                    <div class="d-inline-block">
-                                        {{ knp_pagination_render(articlesView2) }}
-                                    </div>
-                                </div>
-                            </div>
-                        {% endif %}
+                        {# Blog #}
+                        <div class="container-fluid blog-container">
+
+                            {# Affichage de l'article selon sa catégorie via requete DQL#}
+                            {% for articles in articlesView2 %}
+
+                                <article class="blog-describe row shadow-lg p-3 mb-5 bg-body rounded">
+
+                                    {# En tête de l'article #}
+                                    <header class="d-flex flex-column flex-lg-row justify-content-between align-items-center pb-3">
+                                        <h3 class="m-0" id="{{ articles.slug }}"><i class="far fa-newspaper pe-2"></i>{{ articles.title }}</h3>
+                                        <p>Le {{ articles.publicationDate|date("d/m/Y à H\\hi") }}</p>
+                                    </header>
+
+                                    <hr>
+
+                                    {# Contenu de l'article #}
+                                    <p>{{ articles.content|purify|nl2br }}</p>
+
+                                    {# footer de l'article #}
+                                    <footer class="blockquote-footer d-flex justify-content-end">publié dans {{ articles.category.title }}</footer>
+
+                                </article>
+
+                            {% else %}
+
+                                <p class="col-12 text-center alert ">Aucun article publié dans la catégorie .</p>
+
+                            {% endfor %}
+
+                        </div>
+
+                    </div>{# Fin de Vue 2 #}
+
+
+                    {# Vue 3 #}
+                    <div class="view" id="view3">
+                        <h2 class="text-center text-lg-start my-4">La vie au sein du Cabinet</h2>
 
                         {# Blog #}
                         <div class="container-fluid">
 
                             {# Affichage de l'article selon sa catégorie via requete DQL#}
-                            {% for article in articlesView2 %}
+                            {% for article in articlesView3 %}
 
                                 <article class="blog-describe row shadow-lg p-3 mb-5 bg-body rounded">
 
@@ -131,7 +166,7 @@
 
                         </div>
 
-                    </div> {# Fin de Vue 2  #}
+                    </div> {# Fin de Vue 3  #}
 
                 </div>
 

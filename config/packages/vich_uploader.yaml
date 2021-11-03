@@ -7,6 +7,7 @@ vich_uploader:
             upload_destination: '%kernel.project_dir%/public%photo_equipement%'
             delete_on_update: false
             delete_on_remove: false
+            namer : Vich\UploaderBundle\Naming\UniqidNamer
         photo_practitioner:
             uri_prefix: '%photo_practitioner%'
             upload_destination: '%kernel.project_dir%/public%photo_practitioner%'

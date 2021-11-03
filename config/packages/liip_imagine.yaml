@@ -15,3 +15,8 @@ liip_imagine:
             filters:
                 scale:
                     dim: [ 200, 200 ]
+        cabinet:
+            quality: 100
+            filters:
+                scale:
+                    dim: [300, 300 ]

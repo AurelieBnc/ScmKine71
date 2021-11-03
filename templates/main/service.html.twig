@@ -80,7 +80,11 @@
             <footer class="blockquote-footer">Un dépassement d'honoraire est appliqué pour certains actes. Payable en fin de séance
                 <p>* AM : Assurance Maladie</p>
             </footer>
-
+            <div class=" d-flex flex-row justify-content-center mx-auto mt-3 col-12 ">
+                <div class="p-3" ><i class="fas fa-check-square pe-1"></i>Conventionné secteur 1</div>
+                <div class="p-3" ><i class="fas fa-credit-card pe-1"></i>Paiement : CB, Chèques, Espèces</div>
+                <div class="p-3" ><i class="fas fa-id-card pe-1"></i>Carte Vitale acceptée</div>
+            </div>
         </div>
     </div>
 
@@ -94,7 +98,7 @@
 
             <div class="row d-flex flex-row mb-5">
                 <div class="col-3 d-flex  align-items-center">
-                    <img src="{{asset ('images/installations/'~ equipements.image)}}" alt="photo {{ equipements.name }}" class="img-fluid " >
+                    <img src="{{asset ('uploads/installations/'~ equipements.image)}}" alt="photo {{ equipements.name }}" class="img-fluid " >
                 </div>
                 <div class="col-9">
                     <h4 class="mb-3 shadow-sm p-3 mb-4 bg-body rounded">Fonctionnalités de l'appareil</h4>

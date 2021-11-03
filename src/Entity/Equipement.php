@@ -38,6 +38,7 @@ class Equipement
      */
     private $imageFile;
 
+
     /**
      * @ORM\Column(type="text")
      */
@@ -60,11 +61,18 @@ class Equipement
         return $this;
     }
 
+    /**
+     * @return string/null
+     */
     public function getImage(): ?string
     {
         return $this->image;
     }
 
+    /**
+     * @param string/null $image
+     * @return $this
+     */
     public function setImage(string $image): self
     {
         $this->image = $image;
@@ -72,12 +80,15 @@ class Equipement
         return $this;
     }
 
-    public function getImageFile()
+    /**
+     * @return File/null
+     */
+    public function getImageFile(): ?File
     {
         return $this->imageFile;
     }
 
-    public function setImageFile(File $file = null):void
+    public function setImageFile(?File $file = null)
     {
         $this->imageFile = $file;
 

@@ -2,8 +2,8 @@
 /* Variables contenant les couleurs du thème du site */
 :root{
     --darkcolor: #0068AB;
-    --mid-color: #a3ccd9;
-    --lightcolor: #cbecf8;
+    --mid-color: #A3CCD9;
+    --lightcolor: #CBECF8;
     --light: whitesmoke;
 }/*todo verifier les couleurs lightblue*/
 
@@ -152,6 +152,14 @@ nav.navbar>div>div>ul>li>ul>li>a:hover{
 
 .office-describe>div.card>div.row>div>div.card-body>h3{
     color: var(--darkcolor);
+}
+
+/*Carrousel*/
+.carousel-item{
+    background-color: var(--lightcolor)!important;
+}
+.carousel-control-next, .carousel-control-prev{
+    background-color: var(--darkcolor);
 }
 
 
