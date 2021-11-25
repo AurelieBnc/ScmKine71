@@ -11,6 +11,7 @@ parameters:
     coefPrix: 2.15
     photo_equipement: /uploads/installations
     photo_practitioner: /uploads/practitioner
+    photo_blog: /uploads/blog
 
 services:
     # default configuration for services in *this* file

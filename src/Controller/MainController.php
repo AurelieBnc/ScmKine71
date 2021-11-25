@@ -79,7 +79,7 @@ class MainController extends AbstractController
 
 				$email = ( new TemplatedEmail() )
 					->from(new Address($contactForm->get("email")->getData(), 'noreply'))
-					->to('scmkine71@gmail.com')
+					->to('scmkinecarton@gmail.com')
 					->subject($contactForm->get("subject")->getData())
 					->htmlTemplate('email/contact.html.twig')    // Fichier twig du mail en version html
 					->textTemplate('email/contact.txt.twig')     // Fichier twig du mail en version text

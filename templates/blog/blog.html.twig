@@ -74,6 +74,13 @@
 
                                     {# Contenu de l'article #}
                                     <p>{{ articles.content|purify|nl2br }}</p>
+                                    {% if articles.image is not empty %}
+                                    <div class="col-3 d-flex  align-items-center">
+                                        <img src="{{asset ('uploads/blog/'~ articles.image)}}" alt="photo {{ articles.title }}" class="img-fluid " >
+                                    </div>
+                                    {% endif %}
+
+
 
                                     {# footer de l'article #}
                                     <footer class="blockquote-footer d-flex justify-content-end">publié dans {{ articles.category.title }}</footer>
@@ -113,6 +120,11 @@
 
                                     {# Contenu de l'article #}
                                     <p>{{ articles.content|purify|nl2br }}</p>
+                                    {% if articles.image is not empty %}
+                                    <div class="col-3 d-flex  align-items-center">
+                                        <img src="{{asset ('uploads/blog/'~ articles.image)}}" alt="photo {{ articles.title }}" class="img-fluid " >
+                                    </div>
+                                    {% endif %}
 
                                     {# footer de l'article #}
                                     <footer class="blockquote-footer d-flex justify-content-end">publié dans {{ articles.category.title }}</footer>
@@ -152,6 +164,11 @@
 
                                     {# Contenu de l'article #}
                                     <p>{{ article.content|purify|nl2br }}</p>
+                                    {% if article.image is not empty %}
+                                    <div class="col-3 d-flex  align-items-center">
+                                        <img src="{{asset ('uploads/blog/'~ article.image)}}" alt="photo {{ article.title }}" class="img-fluid " >
+                                    </div>
+                                    {% endif %}
 
                                     {# footer de l'article #}
                                     <footer class="blockquote-footer d-flex justify-content-end">publié dans {{ article.category.title }}</footer>

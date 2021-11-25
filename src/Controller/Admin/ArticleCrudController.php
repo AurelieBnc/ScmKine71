@@ -11,6 +11,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Vich\UploaderBundle\Form\Type\VichImageType;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 
 class ArticleCrudController extends AbstractCrudController
 {
@@ -28,6 +30,8 @@ class ArticleCrudController extends AbstractCrudController
             DateField::new('publicationDate','Date de publication'),
             TextEditorField::new('content','Contenu'),
             SlugField::new('slug')->setTargetFieldName('title')->hideOnIndex(),
+            TextField::new('imageFile')->setFormType(VichImageType::class)->hideOnIndex(),
+            ImageField::new('image')->setBasePath('/uploads/blog/')->onlyOnIndex(),
 
         ];
     }
