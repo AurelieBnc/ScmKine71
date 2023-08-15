@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur 403 - {{ site_name }}{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+    <div class="row">
+        <h1  class="text-center name-office my-5">Erreur 403</h1>
+        <h3 class="text-center my-5">L'accés à la page à laquelle vous tentez d'accéder ne vous est pas autorisé -  <a href="{{ path('home') }}">revenir à l'acceuil</a>
+        </h3>
+        <img class="img-thumbnail img-fluid" src="{{ asset('images/pagesErreur/cadenas.png')|imagine_filter('reduc') }}" alt="image cadenas">
+    </div>
+    </div>
+
+{% endblock %}

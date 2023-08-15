@@ -1,0 +1,117 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Soins et installations - {{ site_name }}{% endblock %}
+
+{% block body %}
+
+
+    <h1 id="service-price" class="text-center name-office mb-5">Nos soins et installations</h1>
+
+    <div class="container-fluid">
+        {# Présentation  #}
+        <div class="office-describe office-services row shadow-lg p-3 mb-5 bg-body rounded">
+
+
+            <h2 >Tarifications</h2>
+
+            <div class="table-responsive">
+                <table class="table">
+
+                    <thead>
+                    <tr>
+                        <th scope="col">Acte pratiqué </th>
+                        <th scope="col">AM</th>
+                        <th scope="col">Montant</th>
+                        <th scope="col">% Remboursement AM*</th>
+                        <th scope="col">Montant remboursé - AM*</th>
+                        <th scope="col">Montant remboursable - Mutuelle</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for services in service %}
+                        {# les trois coefficients sont facilement modifiable dans services.yaml#}
+                        <tr>
+                            <th scope="row">{{ services.title}}</th>
+                            <td>{{ services.amCode|number_format(1,'.') }}</td>
+                            <td>{{ (services.amCode|number_format(1,'.') * coefPrix|number_format(2,'.','.'))|number_format(2,'.','.') }}</td>
+                            <td>{{ coefAM }}</td>
+                            <td>{{ ((services.amCode|number_format(1,'.') * coefPrix|number_format(2,'.','.'))* coefAM /100 )|number_format(2,'.','.') }}</td>
+                            <td>{{ ((services.amCode|number_format(1,'.') * coefPrix|number_format(2,'.','.'))* coefMut /100)|number_format(2,'.','.')  }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
+            <footer class="blockquote-footer">Tarif pour une séance
+                <p>* AM : Assurance Maladie</p>
+            </footer>
+            <hr>
+
+            <h2>Dépassements</h2>
+            <div class="table-responsive">
+                <table class="table">
+
+                    <thead>
+                    <tr>
+                        <th scope="col">Acte pratiqué </th>
+                        <th scope="col">Montant total</th>
+                        <th scope="col">Montant remboursé - par les caisses</th>
+                        <th scope="col">Montant non-remboursé</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for services in service %}
+                    {% if services.overtaking !=null %}
+                    <tr>
+                    <th scope="row">{{ services.title }}</th>
+                    <td>{{ ((services.amCode|number_format(2,'.','.') * coefPrix) + services.overtaking|number_format(2,'.','.'))|number_format(2,'.','.') }}</td>
+                    <td>{{ ((services.amCode|number_format(2,'.','.') * coefPrix) )|number_format(2,'.','.') }}</td>
+                    <td>{{ services.overtaking|number_format(2,'.','.') }}</td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
+            <footer class="blockquote-footer">Un dépassement d'honoraire est appliqué pour certains actes. Payable en fin de séance
+                <p>* AM : Assurance Maladie</p>
+            </footer>
+            <div class=" d-flex flex-row justify-content-center mx-auto mt-3 col-12 ">
+                <div class="p-3" ><i class="fas fa-check-square pe-1"></i>Conventionné secteur 1</div>
+                <div class="p-3" ><i class="fas fa-credit-card pe-1"></i>Paiement : CB, Chèques, Espèces</div>
+                <div class="p-3" ><i class="fas fa-id-card pe-1"></i>Carte Vitale acceptée</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="office-describe office-services row shadow-lg p-3 mb-5 bg-body rounded">
+            <h2 id="medical-facility">Installations</h2>
+            <hr>
+            {% for equipements in equipement %}
+            <h3 class ="mb-3 mt-5 shadow-sm p-3 mb-4 bg-body rounded">{{ equipements.name }}</h3>
+
+            <div class="row d-flex flex-row mb-5">
+                <div class="col-3 d-flex  align-items-center">
+                    <img src="{{asset ('uploads/installations/'~ equipements.image)}}" alt="photo {{ equipements.name }}" class="img-fluid " >
+                </div>
+                <div class="col-9">
+                    <h4 class="mb-3 shadow-sm p-3 mb-4 bg-body rounded">Fonctionnalités de l'appareil</h4>
+                    {{ equipements.describeEquipement|purify }}
+                </div>
+            </div>
+            {% endfor %}
+
+            <!--Video explicative de l'appareil onde de choc
+            <div class="col-8 d-flex ">
+                <iframe width="600" height="338" src="https://www.youtube.com/embed/7gGEnY2huWY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>-->
+        </div>
+    </div>
+
+{% endblock %}

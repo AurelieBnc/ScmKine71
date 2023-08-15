@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Région sous dotée - informations - {{ site_name }}{% endblock %}
+
+{% block body %}
+    {# Présentation region sous-doutée #}
+
+    <h1 class="text-center name-office mb-5">Région sous-dotées</h1>
+
+    <div class="container-fluid">
+        <div class="office-describe row shadow-lg p-3 mb-5 bg-body rounded">
+            <h2>Signification</h2>
+            <hr>
+            <p>Selon un calcul bien défini, mettant en relation les caractéristiques de la population de notre commune d'installation avec le niveau d'activité des    praticiens installés, l'Agence Régionale de Santé (ARS) positionne Saint vallier en région sous dotée en masseurs-kinésithérapeutes. Voici ci joint le détail des aides pouvant être mises à notre disposition.</p>
+
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="office-describe row shadow-lg p-3 mb-5 bg-body rounded">
+            <h2 class="text-center">Avantages</h2>
+            <hr>
+            <div class="office-advantage row d-flex justify-content-around mx-auto mt-3">
+
+
+                <div class="card mb-5" style="width: 18rem;">
+                    <div class="card-body">
+                        <h3 class="card-title"><i class="fas fa-user-friends"></i> Contrat d'aide à l'installation</h3>
+                        <hr>
+                        <p class="card-text">Aide forfaitaire annuelle sur une durée de 5 ans en cas d'installation dans un cabinet déjà existant en zone sous-dotée</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-center"><p><span>12500 euros</span> sur 2 ans </p></li>
+                        <li class="list-group-item text-center"><p><span>3000 euros</span> sur 3 ans</p></li>
+                        <li class="list-group-item">
+                            <p class="fw-bolder">Engagements:</p>
+                            <p>Exercer à 50% son activité dans la zone pendant 5 ans au sein du cabinet</p>
+                        </li>
+                    </ul>
+                    <div class="card-body ps-0">
+                        <img src="{{ asset('images/icons/ameli-icon2.jpg') }}" alt="logo Ameli" class="" style="width:3rem;">
+                        <a href="https://www.ameli.fr/masseur-kinesitherapeute/exercice-liberal/vie-cabinet/aide-maintien/aides-installation-maintien-activite-zones-deficitaires#text_63354" target="_blank" class="card-link">Plus de détails sur Ameli.fr</a>
+                    </div>
+                </div>
+
+                <div class="card mb-5" style="width: 18rem;">
+                    <div class="card-body">
+                        <h3 class="card-title"><i class="fas fa-clinic-medical"></i></i> Contrat d'aide au maintien d'activité</h3>
+                        <hr>
+                        <p class="card-text">Aide forfaitaire annuelle en cas d'exercice en zone sous-doutée, permettant de financer divers investissements et de vous former</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-center"><p><span>3000 euros</span> par an</p></li>
+                        <li class="list-group-item text-center"><p><span>+ 150 euros</span> par mois</p></li>
+                        <li class="list-group-item">
+                            <p class="fw-bolder">Engagements:</p>
+                            <p>Poursuivre son activité pendant une durée minimale de 3 ans dans une région sous-doutée</p>
+                        </li>
+                    </ul>
+                    <div class="card-body ps-0">
+                        <img src="{{ asset('images/icons/ameli-icon2.jpg') }}" alt="logo Ameli" class="" style="width:3rem;">
+                        <a href="https://www.ameli.fr/masseur-kinesitherapeute/exercice-liberal/vie-cabinet/aide-maintien/aides-installation-maintien-activite-zones-deficitaires#text_63360" target="_blank" class="card-link">Plus de détails sur Ameli.fr</a>
+                    </div>
+                </div>
+
+                <div class="card mb-5" style="width: 18rem;">
+                    <div class="card-body">
+                        <h3 class="card-title"><i class="fas fa-laptop"></i> Forfait d'aide à la modérnisation</h3>
+                        <hr>
+                        <p class="card-text">Il regroupe les différentes aides à la modernisation et à l'informatisation du cabinet (aide à la télétransmission, à la maintenance, SCOR)</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-center"><p><span>490 euros</span></p></li>
+                        <li class="list-group-item text-center"><p><span>100 euros</span></p></li>
+                        <li class="list-group-item">
+                            <p class="fw-bolder">Prérequis:</p>
+                            <p>Cinq indicateurs, ainsi qu'un complémentaire, tous atteint par le cabinet</p>
+                        </li>
+                    </ul>
+                    <div class="card-body ps-0">
+                        <img src="{{ asset('images/icons/ameli-icon2.jpg') }}" alt="logo Ameli" class="" style="width:3rem;">
+                        <a href="https://www.ameli.fr/masseur-kinesitherapeute/exercice-liberal/facturation-remuneration/teletransmission-retour-noemie/forfait-daide-la-modernisation-et-informatisation" target="_blank" class="card-link">Plus de détails sur Ameli.fr</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock %}

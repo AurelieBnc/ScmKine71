@@ -1,0 +1,262 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog - {{ site_name }}{% endblock %}
+
+{% block body %}
+
+{# nécessaire pour inclusion de la div facebook #}
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v11.0" nonce="SGj5JFQk"></script>
+
+
+
+    {# container général de la partie blog +aside #}
+    <div class="container p-0">
+        <h1 class="text-center name-office my-5">Fil d'actualité du Cabinet</h1>
+
+
+
+
+        <div class="row">
+            {# Conteneur général du système de tabulation du Sous-Menus Catégorie d'article #}
+            <section class="my-5 col-12 col-lg-9 tab-container">
+
+                {# Conteneur des boutons #}
+                <div class="tabs">
+                    {# Bouton 1 (affiché par défaut avec la classe active) #}
+                    <div class="tab active" data-open="view1">
+                        <h3>Général</h3>
+                    </div>
+                    {# Bouton 2 #}
+                    <div class="tab" data-open="view2">
+                        <h3>Actualité Santé</h3>
+                    </div>
+                    {# Bouton 3 #}
+                    <div class="tab" data-open="view3">
+                        <h3>Vie du cabinet</h3>
+                    </div>
+                </div>
+
+                {# Conteneur des vues correspondant aux boutons  #}
+                <div class="views">
+
+                    {# Vue 1 - Actualité santé (affichée par défaut avec la classe active) #}
+                    <div class="view active" id="view1">
+
+                        {# S'il y a des articles, on affiche la pagination #}
+                        {% if articlesView1 is not empty %}
+                        <div class="row navPagination">
+                            <div class="col-12 my-3 text-center">
+                                <div class="d-inline-block">
+                                    {{ knp_pagination_render(articlesView1) }}
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <h2 class="text-center text-lg-start my-4">Nos articles</h2>
+
+                        {# Blog #}
+                        <div class="container-fluid blog-container">
+
+                            {# Affichage de l'article selon sa catégorie via requete DQL#}
+                            {% for articles in articlesView1 %}
+
+                                <article class="blog-describe row shadow-lg p-3 mb-5 bg-body rounded">
+
+                                    {# En tête de l'article #}
+                                    <header class="d-flex flex-column flex-lg-row justify-content-between align-items-center pb-3">
+                                        <h3 class="m-0" id="{{ articles.slug }}"><i class="far fa-newspaper pe-2"></i>{{ articles.title }}</h3>
+                                        <p>Le {{ articles.publicationDate|date("d/m/Y à H\\hi") }}</p>
+                                    </header>
+
+                                    <hr>
+
+                                    {# Contenu de l'article #}
+                                    <p>{{ articles.content|purify|nl2br }}</p>
+
+                                    {# footer de l'article #}
+                                    <footer class="blockquote-footer d-flex justify-content-end">publié dans {{ articles.category.title }}</footer>
+
+                                </article>
+
+                            {% else %}
+
+                                <p class="col-12 text-center alert ">Aucun article publié dans la catégorie .</p>
+
+                            {% endfor %}
+
+                        </div>
+
+                    </div>{# Fin de Vue 1 #}
+
+
+                    {# Vue 2 - Actualité santé  #}
+                    <div class="view " id="view2">
+                        <h2 class="text-center text-lg-start my-4">Les dernières actualités Santé</h2>
+
+                        {# Blog #}
+                        <div class="container-fluid blog-container">
+
+                            {# Affichage de l'article selon sa catégorie via requete DQL#}
+                            {% for articles in articlesView2 %}
+
+                                <article class="blog-describe row shadow-lg p-3 mb-5 bg-body rounded">
+
+                                    {# En tête de l'article #}
+                                    <header class="d-flex flex-column flex-lg-row justify-content-between align-items-center pb-3">
+                                        <h3 class="m-0" id="{{ articles.slug }}"><i class="far fa-newspaper pe-2"></i>{{ articles.title }}</h3>
+                                        <p>Le {{ articles.publicationDate|date("d/m/Y à H\\hi") }}</p>
+                                    </header>
+
+                                    <hr>
+
+                                    {# Contenu de l'article #}
+                                    <p>{{ articles.content|purify|nl2br }}</p>
+
+                                    {# footer de l'article #}
+                                    <footer class="blockquote-footer d-flex justify-content-end">publié dans {{ articles.category.title }}</footer>
+
+                                </article>
+
+                            {% else %}
+
+                                <p class="col-12 text-center alert ">Aucun article publié dans la catégorie .</p>
+
+                            {% endfor %}
+
+                        </div>
+
+                    </div>{# Fin de Vue 2 #}
+
+
+                    {# Vue 3 #}
+                    <div class="view" id="view3">
+                        <h2 class="text-center text-lg-start my-4">La vie au sein du Cabinet</h2>
+
+                        {# Blog #}
+                        <div class="container-fluid">
+
+                            {# Affichage de l'article selon sa catégorie via requete DQL#}
+                            {% for article in articlesView3 %}
+
+                                <article class="blog-describe row shadow-lg p-3 mb-5 bg-body rounded">
+
+                                    {# En tête de l'article #}
+                                    <header class="d-flex flex-column flex-lg-row justify-content-between align-items-center pb-3">
+                                        <h3 class="m-0>" id="{{ article.slug }}"><i class="fab fa-pagelines p-2"></i> {{ article.title }}</h3>
+                                        <p>Le {{ article.publicationDate|date("d/m/Y à H\\hi") }}</p>
+                                    </header>
+
+                                    <hr>
+
+                                    {# Contenu de l'article #}
+                                    <p>{{ article.content|purify|nl2br }}</p>
+
+                                    {# footer de l'article #}
+                                    <footer class="blockquote-footer d-flex justify-content-end">publié dans {{ article.category.title }}</footer>
+
+                                </article>
+
+                            {% else %}
+
+                                <p class="col-12 text-center alert ">Aucun article publié dans la catégorie .</p>
+
+                            {% endfor %}
+
+                        </div>
+
+                    </div> {# Fin de Vue 3  #}
+
+                </div>
+
+            </section>
+
+
+            {# Aside #}
+            <section class="mt-5 mb-3 col-12 col-lg-3 ">
+                <div id="blog-aside" class="row sticky-aside">
+
+                    {# bloc de recherche en méthode GET avec le name "q"#}
+                    <aside>
+                        <h2 class="text-center fw-bolder">Rechercher</h2>
+                        <form class="d-flex my-3 " method="GET" action="{{ path('search_blog') }}">
+                            <div class="input-group mb-3">
+                                <input class="form-control" type="search" placeholder="Mot clef" aria-label="Search" name="q">
+                                <button class="input-group-text btn btn-outline-secondary" type="submit" id="basic-addon2"><i class="fas fa-search"></i></button>
+                            </div>
+                        </form>
+                    </aside>
+                    {# icon de séparation #}
+                    <img src="{{ asset('images/icons/origami.png') }}" alt="icon origami" class="separation-icon my-3">
+
+                    {# bloc de sites de santés #}
+                    <aside class="col-12 p-2">
+                        <header class="aside-header p-2 rounded-1">
+                            <h2 class="text-center">Sites de santé</h2>
+                            <hr>
+                        </header>
+
+                        {# Liste des sites #}
+                        <div class="aside-content">
+                            <ul class="p-1 ">
+                                <li class="p-2">
+                                    <a href="https://www.ameli.fr/masseur-kinesitherapeute/" target="_blank"><i class="fas fa-seedling p-2" ></i>www.ameli.fr/masseur-kinesitherapeute/</a>
+                                </li>
+                                <li class="p-2">
+                                    <a href=""><i class="fas fa-seedling p-2"></i>site 2</a>
+                                </li>
+                                {# widget facebook en lien avec le bloc l.7 #}
+                                <li class="p-2 ">
+                                    <div class="fb-page" data-href="https://www.facebook.com/maldedos.lebonmouvement/" data-tabs="" data-width="300" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/maldedos.lebonmouvement/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/maldedos.lebonmouvement/">Mal de dos ? #lebonmouvement</a></blockquote></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>
+
+                    {# icon de séparation #}
+                    <img src="{{ asset('images/icons/origami.png') }}" alt="icon origami" class="separation-icon my-3">
+
+                    {# bloc des derniers messages (max:4) #}
+                    <aside class="row">
+                        <header class="aside-header p-2 rounded-1">
+                            <h2 class="text-center" >Derniers articles publiés</h2>
+                            <hr>
+                        </header>
+
+                        {# boucle des derniers articles maximum 4 #}
+                        {% for articles in article|slice(0, 4) %}
+                            <div class="aside-content shadow-sm my-2 bg-body rounded">
+                                <div class="row">
+                                    <article class=" aside">
+
+                                        {# En tête de l'article #}
+                                        <h4 class="mt-2">
+                                            <a href="{{ path ('blog') }}#{{ articles.slug }}"><i class="fas fa-feather-alt p-2"></i>{{ articles.title }}</a>
+                                        </h4>
+
+                                        {# Contenu de l'article #}
+                                        <p class="pb-2 pt-0">{{articles.content|purify|slice(0,70)}}</p>
+
+                                        {# footer de l'article #}
+                                        <footer class="blockquote-footer d-flex justify-content-end mb-1">
+                                            <p class="pe-3">{{ articles.publicationDate|date("d/m/Y") }}</p>
+                                            {# icone différente selon la catégorie #}
+                                            <p>{{ articles.category.id is same as 2? '<i class="fab fa-pagelines"></i>' : '<i class="far fa-newspaper"></i>' }}</p>
+                                        </footer>
+
+                                    </article>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </aside>
+                </div>
+
+            </section> {# Fin section des Asides  #}
+
+        </div>
+    </div>
+
+
+{% endblock %}

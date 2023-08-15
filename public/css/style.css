@@ -1,0 +1,411 @@
+/*//////////*/
+/* Variables contenant les couleurs du thème du site */
+:root{
+    --darkcolor: #0068AB;
+    --mid-color: #A3CCD9;
+    --lightcolor: #CBECF8;
+    --light: whitesmoke;
+}/*todo verifier les couleurs lightblue*/
+
+
+/*//////////*/
+/* Importation des polices */
+ @font-face {
+    font-family: Roboto;
+    src: url('../fonts/Roboto-Regular.ttf');
+}
+/* Police du nom */
+@font-face {
+    font-family: Cinzel-Medium;
+    src: url('../fonts/Cinzel-Medium.ttf');
+}
+/* Police h2 */
+@font-face {
+    font-family: Cinzel-Regular;
+    src: url('../fonts/Cinzel-Regular.ttf');
+}
+/* Police h3 */
+@font-face {
+    font-family: CormorantGaramond;
+    src: url('../fonts/CormorantGaramond-MediumItalic.ttf');
+}
+/*Onglets menuNavigation*/
+@font-face {
+    font-family: PoiretOne;
+    src: url('../fonts/PoiretOne-Regular.ttf');
+}
+
+
+/*//////////*/
+/* Proprités générales*/
+body {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+.bg-blue{
+    background-color: var(--darkcolor);
+    color:var(--light);
+}
+.bg-lightblue{
+    background-color: lightblue;
+    color:var(--light);
+}
+.bg-gray{
+    background-color: #f5f5f5;
+}
+.color-lightblue{
+    color:lightblue;
+}
+.color-blue{
+    color:var(--darkcolor);
+}
+.name-office{
+    font-family: Cinzel-Medium,Arial, Helvetica, sans-serif;
+}
+h2{
+    font-family: Cinzel-Regular,Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+}
+h3{
+    font-family: 'CormorantGaramond', Arial, Helvetica, sans-serif;
+}
+h4{
+    font-family: 'PoiretOne', Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+
+/*//////////*/
+/*Menu de navigation .tab-nav-color*/
+/*Nom du cabinet - gauche*/
+nav.navbar>div>a{
+    color:var(--darkcolor) !important;
+    font-weight:bold;
+    font-size: 1.3rem;
+}
+/*Nom du cabinet - centre*/
+nav.navbar>div>div>a{
+    color:var(--darkcolor) !important;
+    font-weight:bold;
+    font-size: 1.3rem;
+}
+/*Onglets du menu*/
+nav.navbar>div>div>ul>li>a{
+    color:var(--darkcolor) !important;
+    font-family: 'PoiretOne', Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size: 1.3rem;
+}
+/*hover onglet du menu*/
+nav.navbar>div>div>ul>li>a:hover{
+    color:var(--light)!important;
+
+}
+nav.navbar>div>div>ul>li>a::after{
+    color:var(--light)!important;
+
+}
+nav.navbar li.nav-item:hover{
+    background-color: var(--darkcolor);
+    color:var(--light)!important;
+    box-shadow: -2px 7px 33px 2px rgba(255, 255, 255, 0.63);
+    -webkit-box-shadow: -2px 7px 6px 2px rgba(157, 157, 157, 0.63);
+    -moz-box-shadow: -2px 7px 33px 2px rgba(255, 255, 255, 0.63);
+ } /*todo couleur de l'onglet ne reste pas cause hover*/
+
+/*Sous-menu d'administration*/
+nav.navbar>div>div>ul>li>ul{
+    background-color:var(--lightcolor);
+}
+nav.navbar>div>div>ul>li>ul>li>a{
+    color:var(--darkcolor);
+}
+nav.navbar>div>div>ul>li>ul>li>a:hover{
+    background-color:var(--darkcolor);
+    color:var(--light)!important;
+} /*todo supprimer le style du sous menu d'admin si creation d'interface admin */
+
+
+
+/*bannière*/
+.banner{
+    width: 900px;
+    height: 150px;
+    background-color: darkslategrey;
+}
+
+
+/*//////////*/
+/*Partie présentation du cabinet et praticiens */
+/*div de présentation générale*/
+.office-describe{
+    height: auto;
+    width: 85%;
+    margin: auto;
+}
+
+.office-describe>h2{
+    color: var(--darkcolor);
+}
+
+.office-describe>p{
+    text-align: justify;
+}
+
+.office-describe>div.card>div.row>div>div.card-body>h3{
+    color: var(--darkcolor);
+}
+
+/*Carrousel*/
+.carousel-item{
+    background-color: var(--lightcolor)!important;
+}
+.carousel-control-next, .carousel-control-prev{
+    background-color: var(--darkcolor);
+}
+
+
+/*//////////*/
+/*Page Avantages Region todo modifier le nom selon le choix final de l'appelation de la page*/
+ .office-advantage>div>div>h3{
+     color:var(--lightcolor);
+ }
+.office-advantage>div>div>hr{
+    color:var(--lightcolor);
+}
+.office-advantage>div.card{
+    background-color: var(--darkcolor);
+}
+
+.office-advantage>div.card>ul.list-group>li.list-group-item{
+    background-color: var(--lightcolor)!important;
+    color: var(--darkcolor)!important;
+}
+.office-advantage p.card-text{
+    color: var(--light);
+    text-align: center;
+    text-align: -webkit-center;
+    text-align: -moz-center;
+    margin-top: 2rem;
+}
+.office-advantage>div.card>ul.list-group>li.list-group-item>p>span{
+    font-weight: bolder!important;
+}
+.office-advantage a{
+    text-decoration: none;
+    color: var(--mid-color);
+}
+.office-advantage a:hover{
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+
+/*//////////*/
+/*Page soins et installations*/
+
+div.office-services>div.table-responsive>table>thead>tr>th{
+    background-color: var(--lightcolor);
+    color: var(--darkcolor);
+    font-weight: bolder;
+    text-align: center;
+    text-align: -moz-center;
+    text-align: -webkit-center;
+}
+div.office-services>div.table-responsive>table>thead>tr>td{
+    text-align: center;
+    text-align: -moz-center;
+    text-align: -webkit-center;
+}
+div.office-services>div.table-responsive>table>tbody>tr>th{
+    background-color: var(--light);
+    color: var(--darkcolor);
+    text-align: left;
+    text-align:-moz-left;
+    text-align:-webkit-left;
+}
+div.office-services>div.table-responsive>table>tbody>tr>td{
+    text-align: center;
+    text-align: -moz-center;
+    text-align: -webkit-center;
+}
+
+
+/*//////////*/
+/*Blog*/
+
+/*Système de tabulation du sous-Menu*/
+.tab-container .tabs {
+    display: flex;
+    flex-direction: row;
+}
+.tab-container .tabs .tab {
+    cursor: pointer;
+    padding: 5px 20px;
+    background-color: var(--darkcolor);
+    color: var(--light);
+    transition: all .2s ease;
+
+}
+.tab-container .tabs .tab.active {
+    background-color: var(--lightcolor);
+    color: var(--darkcolor);
+    cursor: auto;
+}
+.tab-container .views .view {
+    display: none;
+    background-color: var(--lightcolor);
+    color: var(--darkcolor);
+    padding: 5px 20px;
+    transition: all .2s ease;
+}
+.tab-container .views .view.active {
+    display: block;
+}
+/*div de présentation du blog*/
+.blog-describe{
+    height: auto;
+    width: 95%;
+    margin: auto;
+}
+/*date du header*/
+.blog-describe>header>p{
+    font-family: 'CormorantGaramond', Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+}
+/*asides*/
+div.sticky-aside div.aside-content>ul>li{
+    list-style: none;
+}
+
+#blog-aside div.aside-content>ul>li>a{
+    text-decoration: none;
+    color: var(--darkcolor);
+}
+div.sticky-aside div.aside-content>ul>li>a:hover{
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+#blog-aside>aside>div.aside-content>div>article.aside>h4>a{
+    text-decoration: none;
+    color: var(--darkcolor);
+    font-size: 1.2rem;
+}
+#blog-aside>aside>div.aside-content>div>article.aside>h4>a:hover{
+    text-decoration: underline;
+}
+
+.separation-icon{
+    width: 50px;
+    margin:auto;
+}
+/*//////////*/
+/*Page de recherche*/
+
+/*titre des articles*/
+#search-article>div.blog-describe>header>h3>a{
+    text-decoration: none;
+    color: var(--darkcolor);
+}
+#search-article>div.blog-describe>header>h3>a:hover{
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+/* message - pas de résultat */
+#search-article>p.alert{
+    background-color: var(--lightcolor);
+    color: var(--darkcolor);
+    font-weight: bolder;
+}
+
+/* Menus pagination todo */
+
+
+/*//////////*/
+/*Footer de ma page*/
+
+footer.footer-page>nav.footer-menus>div>ul{
+    list-style: none;
+    /*padding: 0 4rem 0 4rem;*/
+}
+footer.footer-page>nav.footer-menus>div>h4{
+    padding: 2rem 0 1rem 3rem;
+    color: var(--mid-color);
+}
+footer.footer-page>nav.footer-menus>div>div>a>img{
+    width:60px;
+    height:60px;
+    margin:0;
+}
+
+footer.footer-page>p{
+    color:var(--lightcolor);
+}
+
+footer.footer-page a{
+    text-decoration: none;
+    color: var(--lightcolor);
+}
+footer.footer-page a:hover{
+    color:var(--light);
+    text-decoration: underline;
+}
+
+#office-address{
+    cursor: pointer;
+}
+#office-address:hover{
+    color:var(--light);
+    text-decoration: underline;
+}
+
+
+/*//////////*/
+/*classes JS footer-overlay */
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.overlay .close{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 4rem;
+    color:var(--light);
+    cursor: pointer;
+}
+
+/* Utilisation de media queries,car plus pratique sur plusieurs pages*/
+@media (max-width: 992px) {
+    .office-describe{
+        width: 100%;
+        margin: 0;
+    }
+
+    .blog-describe{
+        width: 100%;
+        margin: auto;
+
+    }
+
+    div.blog-container{
+        padding:0;
+    }
+}
+
+
+/*Pages erreurs*/
+
+/*pages 404*/
+

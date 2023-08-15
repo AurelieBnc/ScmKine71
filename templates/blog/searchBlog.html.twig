@@ -1,0 +1,119 @@
+{# Utilisation du modèle de page "base.html.twig" #}
+{% extends 'base.html.twig' %}
+
+{# Titre de la page #}
+{% block title %}Résultat de recherche - {{ site_name }}{% endblock %}
+
+{# contenu de la page #}
+{% block body %}
+
+    {# container général  #}
+    <div class="container p-0">
+        <h1 class="text-center name-office my-5">Resultat de recherche</h1>
+
+        <div class="row">
+            {# Conteneur général du système de tabulation  #}
+            <div class="my-5 col-12 tab-container">
+
+                {# Conteneur de l'onglet #}
+                <div class="tabs">
+                    {# Bouton 1 (affiché par défaut avec la classe active) #}
+                    <div class="tab active pt-3 pb-0" data-open="view1">
+                        <h2 ><i class="fas fa-quote-left fs-6 align-top"></i> {{ app.request.query.get('q') }} <i class="fas fa-quote-right fs-6 align-bottom"></i></h2>
+                    </div>
+                </div>
+
+                {# Conteneur de la vue de résultat de recherche  #}
+                <div class="views">
+
+                    {# Vue de la recherche #}
+                    <div class="view active" >
+
+                        {# Affichage du nombre total d'articles #}
+                        <div>
+                            <p class="col-12 text-center mt-4">Nombre total de résultat : {{ articles.getTotalItemCount }}</p>
+                        </div>
+
+                        {# S'il y a des articles, on affiche la pagination #}
+                        {% if articles is not empty %}
+                            <div class="row">
+                                <div class="col-12 my-3 text-center">
+                                    <div class="d-inline-block">
+                                        {{ knp_pagination_render(articles) }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        {# resultat de la recherche #}
+                        <div id="search-article" class="container-fluid blog-container">
+
+                            {% for article in articles %}
+
+                                <div class="blog-describe row shadow-lg p-3 mb-5 bg-body rounded">
+
+                                    {# En tête de l'article #}
+                                    <header class="d-flex flex-column flex-lg-row justify-content-between align-items-center pb-3">
+                                        <h3>
+                                            <a href="{{ path ('blog') }}#{{ article.slug }}">
+                                                {{ article.category.id is same as 2? '<i class="fab fa-pagelines p-2"></i>' : '<i class="far fa-newspaper p-2"></i>' }}
+                                                {{ article.title }}
+                                            </a>
+                                        </h3>
+                                        <p>Le {{ article.publicationDate|date("d/m/Y à H\\hi") }}</p>
+                                    </header>
+
+                                    <hr>
+
+                                    {# Contenu de l'article #}
+                                    <p class="mb-4">{{ article.content|striptags|slice(0,150) }}... <a href="{{ path ('blog') }}#{{ article.slug }}">Lire la suite</a></p>
+
+                                    {# footer de l'article #}
+                                    <footer class="blockquote-footer d-flex justify-content-end">publié dans {{ article.category.title }}</footer>
+
+                                </div>
+
+                            {% else %}
+
+                                <p class="col-12 text-center alert ">Aucun résultat pour cette recherche.</p>
+
+                            {% endfor %}
+
+                        </div>
+
+                        {# S'il y a des articles, on affiche la pagination #}
+                        {% if articles is not empty %}
+                            <div class="row">
+                                <div class="col-12 my-3 text-center">
+                                    <div class="d-inline-block">
+                                        {{ knp_pagination_render(articles) }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+
+                    </div>{# Fin de Vue 1 #}
+                </div>{# Fin de view #}
+
+                {# icon de séparation #}
+                <img src="{{ asset('images/icons/origami.png') }}" alt="icon origami" class="separation-icon my-5 d-flex justify-content-center">
+
+                {# bloc de nouvelle recherche #}
+                <div class="office-describe office-services row shadow-lg p-3 mb-5 bg-body rounded d-flex justify-content-center">
+                    <h2 class="text-center fw-bolder">Nouvelle recherche</h2>
+                    <form class="col-8 d-flex my-3 " method="GET" action="{{ path('search_blog') }}">
+                        <div class="input-group mb-3">
+                            <input class="form-control" type="search" placeholder="Mot clef" aria-label="Search" name="q">
+                            <button class="input-group-text btn btn-outline-secondary" type="submit" id="basic-addon2"><i class="fas fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

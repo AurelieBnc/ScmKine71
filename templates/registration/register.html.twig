@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création de compte - {{ site_name }}{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        {% endfor %}
+
+
+        <div class="row">
+            <div class="office-describe office-services row shadow-lg p-3 mb-5 bg-body rounded d-flex justify-content-center">
+                <h2 class="text-center fw-bolder my-3" >Créer un compte</h2>
+
+                {{ form_start(registrationForm) }}
+                {{ form_row(registrationForm.email) }}
+                {{ form_row(registrationForm.plainPassword, {label: 'Password'}) }}
+                {# Affichage du captcha avec la clé publique récupérée directement grâce à la passerelle faite dans twig.yaml
+                <div class="mb-3">
+                    <div class="g-recaptcha" data-sitekey="{{ google_recaptcha_site_key }}"></div>
+                </div>#}
+
+                <h2>{{ form_row(registrationForm.save) }}</h2>
+
+                {# icon de séparation #}
+                <img src="{{ asset('images/icons/origami.png') }}" alt="icon origami" class="separation-icon my-5 d-flex justify-content-center">
+
+                {{ form_end(registrationForm) }}
+
+    {#   <div class="ps-2"><a href="{{ path('app_forgot_password_request')}}">Mot de passe oublié</a></div>#}
+
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
